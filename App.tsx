@@ -522,11 +522,11 @@ const App = () => {
                 })}
               </div>
 
-              <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 relative z-10 w-full">
+              <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 relative z-10 w-full items-center justify-center">
                 {/* Contact Info Text and Cards */}
-                <div className="space-y-12">
+                <div className="space-y-12 flex flex-col items-center lg:items-start">
                   <div className="space-y-4">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-deep/5 dark:bg-white/5 border border-brand-deep/10 mb-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-deep/5 dark:bg-white/5 border border-brand-deep/10 mb-4 mx-auto lg:mx-0">
                       <Activity size={14} className="text-brand-medium animate-pulse" />
                       <span className="text-[10px] font-black uppercase tracking-widest text-brand-medium">System Status: Online</span>
                     </div>
@@ -534,9 +534,9 @@ const App = () => {
                     <p className="text-brand-medium font-semibold text-lg max-w-md text-center lg:text-left mx-auto lg:mx-0">I'm currently looking for new opportunities and collaborations. Drop a message to start the conversation.</p>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-6">
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-6 w-full">
                     {/* Unified Email and Contact cards with opposite contrast logic */}
-                    <a href="mailto:mfredebel@gmail.com" className="group p-6 rounded-[2rem] bg-white/40 dark:bg-slate-800/40 backdrop-blur-md border border-white/20 dark:border-white/5 transition-all hover:-translate-y-1 hover:bg-brand-deep hover:text-white dark:hover:bg-white dark:hover:text-[#1C4D8D] flex items-center gap-6 border-l-4 border-l-brand-medium">
+                    <a href="mailto:mfredebel@gmail.com" className="group p-6 rounded-[2rem] bg-white/40 dark:bg-slate-800/40 backdrop-blur-md border border-white/20 dark:border-white/5 transition-all hover:-translate-y-1 hover:bg-brand-deep hover:text-white dark:hover:bg-white dark:hover:text-[#1C4D8D] flex items-center gap-6 border-l-4 border-l-brand-medium justify-center sm:justify-start">
                       <div className="w-12 h-12 rounded-2xl bg-brand-medium text-white dark:text-[#1C4D8D] flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-brand-medium/20">
                         <Mail size={20} />
                       </div>
@@ -546,7 +546,7 @@ const App = () => {
                       </div>
                     </a>
                     
-                    <a href="tel:+2348142236343" className="group p-6 rounded-[2rem] bg-white/40 dark:bg-slate-800/40 backdrop-blur-md border border-white/20 dark:border-white/5 transition-all hover:-translate-y-1 hover:bg-brand-deep hover:text-white dark:hover:bg-white dark:hover:text-[#1C4D8D] flex items-center gap-6 border-l-4 border-l-brand-medium">
+                    <a href="tel:+2348142236343" className="group p-6 rounded-[2rem] bg-white/40 dark:bg-slate-800/40 backdrop-blur-md border border-white/20 dark:border-white/5 transition-all hover:-translate-y-1 hover:bg-brand-deep hover:text-white dark:hover:bg-white dark:hover:text-[#1C4D8D] flex items-center gap-6 border-l-4 border-l-brand-medium justify-center sm:justify-start">
                       <div className="w-12 h-12 rounded-2xl bg-brand-medium text-white dark:text-[#1C4D8D] flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-brand-medium/20">
                         <Phone size={20} />
                       </div>
