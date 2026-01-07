@@ -1,0 +1,252 @@
+:root {
+  --color-deep: #1C4D8D;
+  --color-medium: #4988C4;
+  --color-accent: #BDE8F5;
+  --color-light: #F5F2F2;
+  --bg-main: #F5F2F2;
+  --card-bg: rgba(255, 255, 255, 0.4);
+}
+
+.dark {
+  --color-deep: #FFFFFF;
+  --color-medium: #BDE8F5;
+  --color-accent: #0F172A;
+  --color-light: #020617;
+  --bg-main: #020617;
+  --card-bg: rgba(15, 23, 42, 0.6);
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+  background-color: var(--bg-main);
+  color: var(--color-deep);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #1C4D8D 0%, #4988C4 50%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #BDE8F5 50%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes morph {
+  0% { border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%; }
+  34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+  67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+  100% { border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg) translate(0, 0); }
+  to { transform: rotate(360deg) translate(20px, 10px); }
+}
+
+.blob-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  background: #4988C4;
+  filter: blur(80px);
+  opacity: 0.12;
+  animation: morph 8s ease-in-out infinite, spin-slow 20s linear infinite alternate;
+}
+
+.dark .blob {
+  background: #BDE8F5;
+  opacity: 0.08;
+}
+
+@keyframes introSlideDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes introSlideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes introSlideRight {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes introScaleIn {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.animate-intro-down { animation: introSlideDown 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+.animate-intro-up { animation: introSlideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+.animate-intro-right { animation: introSlideRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+.animate-intro-scale { animation: introScaleIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+
+@keyframes shimmer-sweep {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, var(--color-deep) 0%, var(--color-deep) 42%, var(--color-medium) 50%, var(--color-deep) 58%, var(--color-deep) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-sweep 2.5s linear infinite;
+  display: inline-block;
+}
+
+@keyframes flare-sweep {
+  0% { transform: translateX(-200%) skewX(-25deg); }
+  30% { transform: translateX(250%) skewX(-25deg); }
+  100% { transform: translateX(250%) skewX(-25deg); }
+}
+
+.badge-flare {
+  position: relative;
+  overflow: hidden;
+}
+
+.badge-flare::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2), transparent);
+  animation: flare-sweep 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 0.8; transform: scale(1.2); }
+}
+
+.glitter {
+  position: absolute;
+  background: var(--color-medium);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: twinkle linear infinite;
+  left: var(--glitter-left);
+  top: var(--glitter-top);
+  width: var(--glitter-size);
+  height: var(--glitter-size);
+  animation-duration: var(--glitter-duration);
+  animation-delay: var(--glitter-delay);
+}
+
+.dark .glitter {
+  background: white;
+}
+
+@keyframes shooting {
+  0% { transform: translateX(0) translateY(0) rotate(-45deg); opacity: 0; }
+  10% { opacity: 1; }
+  30% { transform: translateX(-400px) translateY(400px) rotate(-45deg); opacity: 0; }
+  100% { transform: translateX(-400px) translateY(400px) rotate(-45deg); opacity: 0; }
+}
+
+.shooting-star-blue {
+  position: absolute;
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-medium), transparent);
+  border-radius: 999px;
+  pointer-events: none;
+  opacity: 0;
+  animation: shooting 6s linear infinite;
+}
+
+.star-c-1 { top: 10%; right: 10%; animation-delay: 0s; }
+.star-c-2 { top: 40%; right: -5%; animation-delay: 2s; }
+.star-c-3 { top: 70%; right: 20%; animation-delay: 4s; }
+
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.noise-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3Ex%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.typewriter-cursor::after {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 0.9em;
+  background-color: var(--color-medium);
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+.animate-shake { animation: shake 0.2s ease-in-out 0s 2; }
+
+/* Dynamic Background Decorator Styles */
+.mouse-follower {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.2;
+  transition: opacity 0.5s ease;
+  background: radial-gradient(circle, rgba(73, 136, 196, 0.3) 0%, transparent 70%);
+  left: var(--mouse-x);
+  top: var(--mouse-y);
+}
+
+.dark .mouse-follower {
+  opacity: 0.4;
+}
+/* Dynamic Animation Delays */
+.delay-200 { --animation-delay: 200ms; animation-delay: var(--animation-delay); }
+.delay-300 { --animation-delay: 300ms; animation-delay: var(--animation-delay); }
+.delay-400 { --animation-delay: 400ms; animation-delay: var(--animation-delay); }
+.delay-600 { --animation-delay: 600ms; animation-delay: var(--animation-delay); }
+.delay-800 { --animation-delay: 800ms; animation-delay: var(--animation-delay); }
+.delay-1000 { --animation-delay: 1000ms; animation-delay: var(--animation-delay); }
+.delay-1200 { --animation-delay: 1200ms; animation-delay: var(--animation-delay); }
+.delay-4s { --animation-delay: -4s; animation-delay: var(--animation-delay); }
+.delay-7s { --animation-delay: -7s; animation-delay: var(--animation-delay); }
+.delay-8s { --animation-delay: -8s; animation-delay: var(--animation-delay); }
+
+/* Skill animation delays using CSS custom properties */
+.skill-animate {
+  animation-delay: var(--skill-delay, 0s);
+}
+
+/* Dynamic glitter positioning */
+.glitter {
+  position: absolute;
+  width: var(--glitter-size);
+  height: var(--glitter-size);
+  left: var(--glitter-left);
+  top: var(--glitter-top);
+  animation-duration: var(--glitter-duration);
+  animation-delay: var(--glitter-delay);
+}
