@@ -1,7 +1,3 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
-
 # Fredebel Menoh - Portfolio Website
 
 A modern, responsive portfolio website showcasing frontend development skills and projects. Built with React, TypeScript, and Tailwind CSS with a focus on performance, accessibility, and user experience.
